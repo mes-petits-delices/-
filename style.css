@@ -69,27 +69,34 @@ header .navbar li a:hover { color: #ff0157; }
         justify-content: center; align-items: center;
     }
 }
+
 .menu .contenu {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 40px;
 }
+
 .menu .contenu .box {
     width: 340px;
     margin: 20px;
     border: 15px solid #fff;
     box-shadow: 0 5px 35px rgba(0,0,0,0.08);
+    cursor: pointer;
 }
+
 .menu .contenu .box .imbox {
     position: relative;
     width: 100%;
     height: 300px;
 }
+
 .menu .contenu .box .imbox img {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     object-fit: cover;
+}
+
 /* Style de la fenêtre surgissante */
 .modale {
     display: none; 
@@ -97,7 +104,7 @@ header .navbar li a:hover { color: #ff0157; }
     z-index: 10001;
     left: 0; top: 0;
     width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.9); /* Fond noir transparent */
+    background-color: rgba(0,0,0,0.9);
 }
 
 .modale-contenu {
@@ -131,5 +138,4 @@ header .navbar li a:hover { color: #ff0157; }
     height: 150px;
     object-fit: cover;
     border-radius: 5px;
-}}
-
+}
