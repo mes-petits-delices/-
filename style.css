@@ -139,3 +139,50 @@ header .navbar li a:hover { color: #ff0157; }
     object-fit: cover;
     border-radius: 5px;
 }
+/* Style pour la section Contact */
+.contact {
+    padding: 100px 50px;
+    background: #fff;
+    text-align: center;
+}
+
+.contenu-contact {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permet d'empiler les icônes sur mobile */
+    margin-top: 40px;
+}
+
+.contact-box {
+    width: 280px;
+    margin: 15px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.contact-box:hover {
+    background: #ff0157; /* Devient rose au survol */
+    transform: translateY(-5px);
+}
+
+.contact-box a {
+    text-decoration: none;
+    color: #111;
+}
+
+.contact-box:hover a, .contact-box:hover h3, .contact-box:hover p {
+    color: #fff; /* Le texte devient blanc au survol */
+}
+
+.contact-box img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+/* Adaptation pour Tablette et Mobile */
+@media (max-width: 991px) {
+    .contact { padding: 50px 20px; }
+    .contact-box { width: 100%; max-width: 350px; }
+}
