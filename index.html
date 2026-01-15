@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mes Petits Délices | Que Du Goût</title>
+    <title>Mes Petits Délices | Pâtisserie Artisanale</title>
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
@@ -14,6 +14,7 @@
             <li><a href="#accueil" onclick="toggleMenu();">Accueil</a></li>
             <li><a href="#propos" onclick="toggleMenu();">À propos</a></li>
             <li><a href="#menu" onclick="toggleMenu();">Menu</a></li>
+            <li><a href="#avis" onclick="toggleMenu();">Avis</a></li>
             <li><a href="#contact" onclick="toggleMenu();">Contact</a></li>
         </ul>
     </header>
@@ -21,8 +22,8 @@
     <section class="banniere" id="accueil">
         <div class="contenu">
             <h2>Que Du Goût</h2>
-            <p>Découvrez une expérience culinaire unique avec nos créations artisanales.</p>
-            <a href="#menu" class="btn">Notre Menu</a>
+            <p>Pâtisseries artisanales faites avec amour et produits locaux.</p>
+            <a href="#menu" class="btn">Voir les douceurs</a>
         </div>
     </section>
 
@@ -30,11 +31,11 @@
         <div class="row">
             <div class="col50">
                 <h2 class="titre-texte"><span>A</span> Propos de Nous</h2>
-                <p>Nous utilisons des produits frais et locaux pour garantir la meilleure qualité possible à nos clients.<br><br>Notre équipe est passionnée par l'art de la cuisine et l'innovation constante.</p>
+                <p>Nous sélectionnons les meilleurs ingrédients : Beurre AOP, chocolat de dégustation et fruits de saison pour des créations d'exception.</p>
             </div>
             <div class="col50">
                 <div class="imgAj">
-                    <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg" alt="image propos">
+                    <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg" alt="Nos pâtisseries">
                 </div>
             </div>
         </div>
@@ -43,20 +44,36 @@
     <section class="menu" id="menu">
         <div class="titre">
             <h2 class="titre-texte">Notre <span>M</span>enu</h2>
-            <p>Cliquez sur une catégorie pour voir nos délices.</p>
+            <p>Découvrez nos collections gourmandes.</p>
         </div>
         <div class="contenu">
             <div class="box" onclick="ouvrirGalerie('gateaux')">
                 <div class="imbox">
                     <img src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Gâteaux">
                 </div>
-                <div class="text"><h3>Spécialités Sucrées</h3></div>
+                <div class="text"><h3>Pâtisseries Fines</h3></div>
             </div>
             <div class="box" onclick="ouvrirGalerie('burgers')">
                 <div class="imbox">
-                    <img src="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg" alt="Burgers">
+                    <img src="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg" alt="Salé">
                 </div>
-                <div class="text"><h3>Menus Gourmands</h3></div>
+                <div class="text"><h3>Côté Salé</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="avis" id="avis">
+        <div class="titre">
+            <h2 class="titre-texte">Ce qu'ils en <span>D</span>isent</h2>
+        </div>
+        <div class="contenu">
+            <div class="box-avis">
+                <p>"Le gâteau d'anniversaire était aussi beau que bon. Une vraie réussite !"</p>
+                <h4>- Sophie L.</h4>
+            </div>
+            <div class="box-avis">
+                <p>"Enfin des vrais produits frais. Le goût du fait maison se sent à chaque bouchée."</p>
+                <h4>- Marc A.</h4>
             </div>
         </div>
     </section>
@@ -64,32 +81,27 @@
     <section class="contact" id="contact">
         <div class="titre">
             <h2 class="titre-texte"><span>C</span>ontact</h2>
-            <p>Retrouvez-nous sur nos réseaux ou appelez-nous !</p>
+            <p>Commandez ou posez vos questions !</p>
         </div>
         <div class="contenu-contact">
             <div class="contact-box">
                 <a href="tel:+33600000000">
                     <img src="https://cdn-icons-png.flaticon.com/512/3059/3059590.png" alt="Téléphone">
-                    <h3>Téléphone</h3>
-                    <p>06 00 00 00 00</p>
+                    <h3>Appeler</h3>
                 </a>
             </div>
             <div class="contact-box">
                 <a href="https://www.instagram.com" target="_blank">
                     <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
                     <h3>Instagram</h3>
-                    <p>@mes_petits_delices</p>
-                </a>
-            </div>
-            <div class="contact-box">
-                <a href="https://www.tiktok.com" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok">
-                    <h3>TikTok</h3>
-                    <p>@mes_petits_delices</p>
                 </a>
             </div>
         </div>
     </section>
+
+    <a href="https://wa.me/33600000000" class="whatsapp-float" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp">
+    </a>
 
     <div id="fenetreGalerie" class="modale">
         <div class="modale-contenu">
