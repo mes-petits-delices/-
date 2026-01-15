@@ -68,3 +68,4 @@ window.ouvrirGalerie = function(type) {
 window.fermerGalerie = function() {
     document.getElementById('fenetreGalerie').style.display = "none";
 }
+
