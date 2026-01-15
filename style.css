@@ -1,57 +1,79 @@
-/* --- Remplace ta partie @media (max-width: 991px) par celle-ci --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
 
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+section { scroll-margin-top: 80px; padding: 100px; }
+p { font-weight: 300; color: #111; line-height: 1.6; }
+
+/* HEADER */
+header {
+    position: fixed; top: 0; left: 0; width: 100%; padding: 40px 100px; z-index: 10000;
+    display: flex; justify-content: space-between; align-items: center; transition: 0.5s;
+}
+header.sticky { background: #fff; padding: 10px 100px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+header .logo { color: #fff; font-size: 2em; font-weight: 700; text-decoration: none; }
+header.sticky .logo { color: #111; }
+header .logo span { color: #ff0157; }
+.navbar { display: flex; }
+.navbar li { list-style: none; }
+.navbar li a { color: #fff; text-decoration: none; margin-left: 30px; font-weight: 300; }
+header.sticky .navbar li a { color: #111; }
+
+/* BANNIERE */
+.banniere {
+    width: 100%; min-height: 100vh; display: flex; justify-content: center; align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg');
+    background-size: cover; background-position: center; text-align: center;
+}
+.banniere h2 { font-size: 5em; color: #fff; }
+.btn { background: #ff0157; color: #fff; padding: 10px 30px; display: inline-block; text-decoration: none; margin-top: 20px; text-transform: uppercase; }
+
+/* PROPOS & IMAGES (Correction ici) */
+.row { display: flex; justify-content: space-between; flex-wrap: wrap; }
+.col50 { width: 48%; }
+.imgAj { width: 100%; height: 400px; border-radius: 15px; overflow: hidden; }
+.imgAj img { width: 100%; height: 100%; object-fit: cover; }
+.titre-texte { color: #111; font-size: 2em; margin-bottom: 20px; text-align: center; }
+.titre-texte span { color: #ff0157; font-weight: 700; font-size: 1.5em; }
+
+/* MENU & BOXES */
+.menu { background: #f7f7f7; text-align: center; }
+.menu .contenu { display: flex; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+.box { width: 340px; margin: 20px; background: #fff; border: 15px solid #fff; box-shadow: 0 5px 35px rgba(0,0,0,0.08); cursor: pointer; }
+.imbox { width: 100%; height: 300px; }
+.imbox img { width: 100%; height: 100%; object-fit: cover; }
+
+/* AVIS */
+.avis { text-align: center; }
+.box-avis { background: #f9f9f9; padding: 30px; margin: 20px; border-radius: 15px; border-left: 5px solid #ff0157; }
+
+/* WHATSAPP FLOAT */
+.whatsapp-float {
+    position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px;
+    background-color: #25d366; border-radius: 50%; z-index: 10000;
+    display: flex; justify-content: center; align-items: center; box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+}
+.whatsapp-float img { width: 35px; }
+
+/* --- CORRECTION MOBILE (IMPORTANT) --- */
 @media (max-width: 991px) {
-    header, header.sticky { padding: 10px 20px; background: #fff; }
+    header, header.sticky { padding: 10px 20px; }
     header .logo, header.sticky .logo { color: #111; }
-    
     .menuToggle { display: block; filter: invert(1); }
-    
     .navbar {
         display: none; flex-direction: column; position: fixed;
-        top: 60px; left: 0; width: 100%; height: 100%;
-        background: #fff; justify-content: center; align-items: center;
+        top: 60px; left: 0; width: 100%; height: 100%; background: #fff;
+        justify-content: center; align-items: center;
     }
     .navbar.active { display: flex; }
+    .navbar li a { color: #111; font-size: 1.5em; margin: 10px 0; }
     
-    /* On réduit la taille du gros titre sur mobile */
-    .banniere .contenu h2 { font-size: 2.2em; }
-
-    /* --- CORRECTION DES IMAGES TROP GROSSES --- */
+    section { padding: 40px 20px; }
+    .banniere h2 { font-size: 2.5em; }
     
-    .propos { padding: 30px 20px; }
-    .row { flex-direction: column; } /* On empile les éléments */
+    /* Correction de tes images "Merde" */
+    .col50 { width: 100%; }
+    .imgAj { height: 250px; margin-top: 20px; } /* L'image ne prend que 250px de haut max */
     
-    .col50 { width: 100%; margin-bottom: 20px; }
-
-    .imgAj { 
-        width: 100%; 
-        height: 250px; /* On limite la hauteur pour ne pas que ça prenne tout l'écran */
-        margin-top: 15px;
-    }
-
-    .imgAj img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* L'image remplit le cadre sans se déformer */
-        border-radius: 10px;
-    }
-
-    /* Pour les boîtes du menu (les gâteaux/burgers) */
-    .menu .contenu .box {
-        width: 100%; /* Prend toute la largeur moins les marges */
-        max-width: 300px; /* Mais ne dépasse pas 300px pour rester propre */
-        margin: 10px auto;
-        border: 5px solid #fff; /* On réduit la bordure blanche qui était trop grosse */
-    }
-
-    .menu .contenu .box .imbox {
-        height: 200px; /* On réduit la hauteur des images du menu */
-    }
-    
-    /* Section Contact */
-    .contact-box {
-        width: 100%;
-        max-width: 280px;
-        margin: 10px auto;
-    }
+    .menu .contenu .box { width: 100%; margin: 10px 0; border: 5px solid #fff; }
+    .imbox { height: 200px; } /* Images menu plus petites sur mobile */
 }
