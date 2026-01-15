@@ -10,62 +10,54 @@ const firebaseConfig = {
   appId: "1:1075677172691:web:8caae8a9d3b455e1011526"
 };
 
+// Initialisation sécurisée
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const avisCol = collection(db, "avis");
 
-// Effet Sticky Header
-window.addEventListener('scroll', function(){
-    const header = document.querySelector('header');
-    header.classList.toggle("sticky", window.scrollY > 0);
+// Fonctions de base (Menu et Scroll)
+window.addEventListener('scroll', () => {
+    document.querySelector('header').classList.toggle("sticky", window.scrollY > 0);
 });
 
-// Menu Mobile
-window.toggleMenu = function(){
-    const navbar = document.querySelector('.navbar');
-    navbar.classList.toggle('active');
-}
+window.toggleMenu = () => {
+    document.querySelector('.navbar').classList.toggle('active');
+};
 
-// Envoi d'un avis
-const form = document.querySelector('#formAvis');
-if(form) {
-    form.addEventListener('submit', async (e) => {
+// Gestion de l'envoi
+const formAvis = document.getElementById('formAvis');
+if (formAvis) {
+    formAvis.addEventListener('submit', async (e) => {
         e.preventDefault();
+        const btn = document.getElementById('btnPublier');
+        btn.innerText = "Envoi...";
+        
         try {
             await addDoc(avisCol, {
-                name: form.name.value,
-                message: form.message.value,
+                name: formAvis.name.value,
+                message: formAvis.message.value,
                 date: new Date()
             });
-            form.reset();
-        } catch (err) {
-            console.error("Erreur Firebase :", err);
+            formAvis.reset();
+            btn.innerText = "Publier l'avis";
+        } catch (error) {
+            alert("Erreur de connexion à la base de données.");
+            btn.innerText = "Réessayer";
         }
     });
 }
 
-// Affichage des avis en direct
+// Affichage des avis
 onSnapshot(query(avisCol, orderBy("date", "desc")), (snapshot) => {
-    const listeAvis = document.getElementById('listeAvis');
-    if(listeAvis) {
-        listeAvis.innerHTML = ""; 
+    const liste = document.getElementById('listeAvis');
+    if (liste) {
+        liste.innerHTML = ""; 
         snapshot.forEach((doc) => {
             const data = doc.data();
-            listeAvis.innerHTML += `
-                <div class="bulle-avis">
-                    <p>"${data.message}"</p>
-                    <h4>- ${data.name}</h4>
-                </div>`;
+            const div = document.createElement('div');
+            div.className = 'bulle-avis';
+            div.innerHTML = `<p>"${data.message}"</p><h4>- ${data.name}</h4>`;
+            liste.appendChild(div);
         });
     }
 });
-
-// Galerie (si besoin)
-window.ouvrirGalerie = function(type) {
-    const modale = document.getElementById('fenetreGalerie');
-    modale.style.display = "block";
-}
-window.fermerGalerie = function() {
-    document.getElementById('fenetreGalerie').style.display = "none";
-}
-
