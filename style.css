@@ -1,68 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+/* --- Remplace ta partie @media (max-width: 991px) par celle-ci --- */
 
-/* --- CONFIGURATION GÉNÉRALE --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
+@media (max-width: 991px) {
+    header, header.sticky { padding: 10px 20px; background: #fff; }
+    header .logo, header.sticky .logo { color: #111; }
+    
+    .menuToggle { display: block; filter: invert(1); }
+    
+    .navbar {
+        display: none; flex-direction: column; position: fixed;
+        top: 60px; left: 0; width: 100%; height: 100%;
+        background: #fff; justify-content: center; align-items: center;
+    }
+    .navbar.active { display: flex; }
+    
+    /* On réduit la taille du gros titre sur mobile */
+    .banniere .contenu h2 { font-size: 2.2em; }
+
+    /* --- CORRECTION DES IMAGES TROP GROSSES --- */
+    
+    .propos { padding: 30px 20px; }
+    .row { flex-direction: column; } /* On empile les éléments */
+    
+    .col50 { width: 100%; margin-bottom: 20px; }
+
+    .imgAj { 
+        width: 100%; 
+        height: 250px; /* On limite la hauteur pour ne pas que ça prenne tout l'écran */
+        margin-top: 15px;
+    }
+
+    .imgAj img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* L'image remplit le cadre sans se déformer */
+        border-radius: 10px;
+    }
+
+    /* Pour les boîtes du menu (les gâteaux/burgers) */
+    .menu .contenu .box {
+        width: 100%; /* Prend toute la largeur moins les marges */
+        max-width: 300px; /* Mais ne dépasse pas 300px pour rester propre */
+        margin: 10px auto;
+        border: 5px solid #fff; /* On réduit la bordure blanche qui était trop grosse */
+    }
+
+    .menu .contenu .box .imbox {
+        height: 200px; /* On réduit la hauteur des images du menu */
+    }
+    
+    /* Section Contact */
+    .contact-box {
+        width: 100%;
+        max-width: 280px;
+        margin: 10px auto;
+    }
 }
-
-p { font-weight: 300; color: #111; line-height: 1.6; }
-
-/* Empêche le menu fixe de cacher le début des sections */
-section { scroll-margin-top: 80px; }
-
-/* --- HEADER & NAVIGATION --- */
-header {
-    position: fixed; top: 0; left: 0; width: 100%;
-    padding: 40px 100px; z-index: 10000;
-    display: flex; justify-content: space-between; align-items: center;
-    transition: 0.5s;
-}
-
-header.sticky {
-    background: #fff; padding: 10px 100px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-}
-
-header .logo { color: #fff; font-size: 2em; font-weight: 700; text-decoration: none; }
-header.sticky .logo { color: #111; }
-header .logo span { color: #ff0157; }
-
-.navbar { display: flex; }
-.navbar li { list-style: none; }
-.navbar li a { color: #fff; text-decoration: none; margin-left: 30px; font-weight: 300; transition: 0.3s; }
-header.sticky .navbar li a { color: #111; }
-header .navbar li a:hover { color: #ff0157; }
-
-/* Bouton Menu Mobile (caché sur PC) */
-.menuToggle {
-    position: relative; width: 40px; height: 40px;
-    background: url('https://cdn-icons-png.flaticon.com/512/7710/7710488.png');
-    background-size: 30px; background-repeat: no-repeat; background-position: center;
-    cursor: pointer; display: none;
-}
-
-/* --- BANNIERE ACCUEIL --- */
-.banniere {
-    position: relative; width: 100%; min-height: 100vh;
-    display: flex; justify-content: center; align-items: center;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg');
-    background-size: cover; background-position: center; text-align: center;
-}
-
-.banniere .contenu h2 { font-size: 5em; color: #fff; line-height: 1.2; }
-.banniere .contenu p { font-size: 1.2em; color: #fff; margin: 10px 0 20px; }
-
-.btn {
-    background: #ff0157; color: #fff; padding: 10px 30px;
-    display: inline-block; text-decoration: none; margin-top: 20px;
-    text-transform: uppercase; letter-spacing: 2px; transition: 0.3s;
-}
-
-/* --- SECTION À PROPOS (CORRIGÉE) --- */
-.propos { padding: 100px; }
-.row { display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; }
-.col50 {
