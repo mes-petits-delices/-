@@ -54,8 +54,30 @@ header .navbar li a:hover { color: #ff0157; }
 .bulle-avis { width: 350px; background: #f4f4f4; padding: 30px; border-radius: 15px; border-left: 5px solid #ff0157; }
 .bulle-avis h4 { margin-top: 15px; color: #ff0157; }
 
-/* --- BLOC FORMULAIRE D'AVIS (AJOUTÉ) --- */
+/* AJOUT FORMULAIRE D'AVIS SANS RIEN CASSER */
 .form-avis { margin-top: 50px; padding: 30px; background: #f9f9f9; border-radius: 15px; max-width: 600px; margin-left: auto; margin-right: auto; }
 .form-avis input, .form-avis textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em; outline: none; }
 .form-avis textarea { height: 100px; resize: none; }
-.form-avis .btn { border: none; cursor: pointer; font-family: 'Poppins', sans-serif; width: 100%; }
+
+/* CONTACT (REMIS COMME AVANT) */
+.contact { text-align: center; }
+.contenu-contact { display: flex; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+.contact-box { width: 280px; margin: 15px; padding: 30px; background: #f9f9f9; border-radius: 20px; transition: 0.3s; text-align: center; }
+.contact-box img { width: 60px; margin-bottom: 15px; }
+.contact-box a { text-decoration: none; color: #111; }
+.contact-box:hover { background: #ff0157; transform: translateY(-10px); }
+.contact-box:hover h3, .contact-box:hover p { color: #fff; }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 991px) {
+    header, header.sticky { padding: 10px 20px; background: #fff; }
+    header .logo, header.sticky .logo { color: #111; }
+    .menuToggle { display: block; filter: invert(1); width: 40px; height: 40px; background: url('https://cdn-icons-png.flaticon.com/512/7710/7710488.png'); background-size: 30px; background-repeat: no-repeat; background-position: center; }
+    .navbar { display: none; flex-direction: column; position: fixed; top: 60px; left: 0; width: 100%; height: 100%; background: #fff; justify-content: center; align-items: center; }
+    .navbar.active { display: flex; }
+    .navbar li a { color: #111; font-size: 1.5em; margin: 10px 0; }
+    section { padding: 40px 20px; }
+    .banniere h2 { font-size: 2.5em; }
+    .col50 { width: 100%; }
+    .imgAj { height: 250px; margin-top: 20px; }
+}
