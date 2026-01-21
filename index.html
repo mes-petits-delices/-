@@ -658,7 +658,464 @@
 
         #lightbox.active img { transform: scale(1); }
 
+
         /* ============================================================
+           13. RESPONSIVE
+           ============================================================ */
+        @media (max-width: 991px) {
+            header { padding: 20px 5%; }
+            .nav-menu { display: none; }
+            section { padding: 80px 5%; }
+            .hero-content h1 { font-size: 4rem; }
+            .map-container { flex-direction: column; }
+        }
 
-          
+    </style>
+</head>
+<body>
 
+    <canvas id="three-canvas"></canvas>
+
+    <div id="custom-cursor"></div>
+    <div id="cursor-follower"></div>
+
+    <header id="main-header">
+        <a href="#" class="logo">DÉ<span>L</span>ICES</a>
+        <ul class="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#secrets">Secrets</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#locations">Ecrins</a></li>
+            <li><a href="#avis">Avis</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn-main" style="padding: 10px 25px; font-size: 0.7rem;">Réserver</a>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="reveal">Haute Gastronomie Numérique</span>
+            <h1 class="reveal-text">L'Éveil des<br>Sens Sensible</h1>
+            <p class="reveal">Découvrez un univers où la finesse des ingrédients rencontre la perfection du code. Une expérience culinaire à la frontière du réel.</p>
+            <div class="cta-group reveal">
+                <a href="#menu" class="btn-main">La Carte</a>
+                <a href="#secrets" class="btn-outline">Notre Histoire</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="stats">
+        <div class="stat-item">
+            <h2 class="counter" data-target="15">0</h2>
+            <p>Années d'Expérience</p>
+        </div>
+        <div class="stat-item">
+            <h2 class="counter" data-target="120">0</h2>
+            <p>Recettes Créatives</p>
+        </div>
+        <div class="stat-item">
+            <h2 class="counter" data-target="98">0</h2>
+            <p>% Clients Heureux</p>
+        </div>
+        <div class="stat-item">
+            <h2 class="counter" data-target="4500">0</h2>
+            <p>Avis Certifiés</p>
+        </div>
+    </div>
+
+    <section class="secrets" id="secrets">
+        <div class="section-header">
+            <h2>Nos <span>Secrets</span></h2>
+            <div></div>
+        </div>
+        <div class="grid-secrets">
+            <div class="tilt-card" data-tilt>
+                <i class="fas fa-seedling"></i>
+                <h3>Culture Bio</h3>
+                <p>Tous nos légumes proviennent de notre propre potager urbain, cultivé sans aucun pesticide.</p>
+            </div>
+            <div class="tilt-card" data-tilt>
+                <i class="fas fa-mortar-pestle"></i>
+                <h3>Artisanat Pur</h3>
+                <p>Chaque sauce, chaque pain et chaque crème est réalisé sur place, chaque matin, avec passion.</p>
+            </div>
+            <div class="tilt-card" data-tilt>
+                <i class="fas fa-award"></i>
+                <h3>Label AOP</h3>
+                <p>Nous sélectionnons rigoureusement nos produits laitiers auprès de fermes locales certifiées.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+        <div class="section-header">
+            <h2>La <span>Galerie</span></h2>
+            <p>Un régal pour les yeux avant celui des papilles.</p>
+            <div></div>
+        </div>
+
+        <div class="menu-tabs">
+            <div class="tab active" data-filter="tous">Tous</div>
+            <div class="tab" data-filter="sucré">Sucré</div>
+            <div class="tab" data-filter="salé">Salé</div>
+            <div class="tab" data-filter="boissons">Boissons</div>
+        </div>
+
+        <div class="menu-grid" id="menuGrid">
+            <div class="menu-item" data-category="sucré" onclick="openLightbox(this)">
+                <img src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Pancakes">
+                <div class="menu-content">
+                    <h3>Pancakes Royaux</h3>
+                    <p>Miel de forêt & baies sauvages</p>
+                </div>
+            </div>
+            <div class="menu-item" data-category="salé" onclick="openLightbox(this)">
+
+                <img src="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg" alt="Burger">
+                <div class="menu-content">
+                    <h3>Le Signature Burger</h3>
+                    <p>Bœuf maturé & Comté 24 mois</p>
+                </div>
+            </div>
+            <div class="menu-item" data-category="salé" onclick="openLightbox(this)">
+                <img src="https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg" alt="Bowl">
+                <div class="menu-content">
+                    <h3>Zenith Bowl</h3>
+                    <p>Quinoa rouge, saumon & avocat</p>
+                </div>
+            </div>
+            <div class="menu-item" data-category="sucré" onclick="openLightbox(this)">
+                <img src="https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg" alt="Dessert">
+                <div class="menu-content">
+                    <h3>Eclat Chocolat</h3>
+                    <p>Ganache noir 70% & Praliné</p>
+                </div>
+            </div>
+            <div class="menu-item" data-category="sucré" onclick="openLightbox(this)">
+                <img src="https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg" alt="Gateau">
+                <div class="menu-content">
+                    <h3>Le Nuage Blanc</h3>
+                    <p>Mousse légère vanille Bourbon</p>
+                </div>
+            </div>
+            <div class="menu-item" data-category="salé" onclick="openLightbox(this)">
+                <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg" alt="Plat">
+                <div class="menu-content">
+                    <h3>Filet de Mer</h3>
+                    <p>Bar de ligne & Asperges vertes</p>
+                </div>
+            </div>
+            <div class="menu-item" data-category="boissons" onclick="openLightbox(this)">
+                <img src="https://images.pexels.com/photos/1189257/pexels-photo-1189257.jpeg" alt="Cocktail">
+                <div class="menu-content">
+                    <h3>Nectar de Rubis</h3>
+                    <p>Grenade, citronnelle & Gin artisanal</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section" id="locations">
+        <div class="section-header">
+            <h2>Nos <span>Écrins</span></h2>
+            <p>Une présence exclusive au coeur de la France.</p>
+            <div></div>
+        </div>
+        <div class="map-container">
+            <div class="map-svg-wrapper">
+                <svg viewBox="0 0 500 500">
+                    <path d="M230,20 L310,40 L400,100 L440,250 L400,430 L250,480 L100,430 L40,300 L60,100 L150,40 Z" />
+                </svg>
+                <div class="map-point" style="top: 18%; left: 45%;" data-store="paris"></div>
+                <div class="map-point" style="top: 48%; left: 68%;" data-store="lyon"></div>
+                <div class="map-point" style="top: 80%; left: 75%;" data-store="marseille"></div>
+                <div class="map-point" style="top: 65%; left: 28%;" data-store="bordeaux"></div>
+            </div>
+            <div class="map-info">
+                <h3>Vivez l'Expérience</h3>
+                <div id="default-store" class="store-details active">
+                    <p>Explorez nos adresses les plus prestigieuses. Survolez un point de lumière pour découvrir les détails de nos établissements.</p>
+                </div>
+                <div id="store-paris" class="store-details">
+                    <h4>Le Palace Paris</h4>
+                    <p>12 Avenue des Champs, 75008 Paris<br>Tél : 01 23 45 67 89</p>
+                    <p>L'excellence culinaire au sommet de la plus belle avenue du monde.</p>
+                </div>
+                <div id="store-lyon" class="store-details">
+                    <h4>L'Atelier Lyon</h4>
+                    <p>4 Rue de la République, 69002 Lyon<br>Tél : 04 78 12 34 56</p>
+                    <p>La capitale de la gastronomie accueille notre laboratoire créatif.</p>
+                </div>
+                <div id="store-marseille" class="store-details">
+                    <h4>La Villa Marseille</h4>
+                    <p>Vieux Port, 13001 Marseille<br>Tél : 04 91 00 11 22</p>
+                    <p>Dégustez nos créations face au large, au rythme du soleil.</p>
+                </div>
+                <div id="store-bordeaux" class="store-details">
+                    <h4>Le Chai Bordeaux</h4>
+                    <p>Place de la Bourse, 33000 Bordeaux<br>Tél : 05 56 00 88 99</p>
+                    <p>L'alliance parfaite entre grands crus et haute pâtisserie.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="avis-section" id="avis">
+        <div class="section-header">
+            <h2>Paroles de <span>Gourmets</span></h2>
+            <div></div>
+        </div>
+
+        <div class="avis-flex">
+            <div class="avis-list" id="avisDisplay">
+                <div class="avis-card">
+                    <h4>Sophie R.</h4>
+                    <p>"Une expérience hors du temps. La présentation des plats est aussi soignée que l'ergonomie de ce site !"</p>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <h3>Partagez votre avis</h3>
+                <form id="feedbackForm">
+                    <div class="input-group">
+                        <input type="text" id="formName" required>
+                        <label>Votre Nom</label>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="formMessage" required></textarea>
+                        <label>Votre expérience...</label>
+                    </div>
+                    <button type="submit" class="btn-main" style="width: 100%; border: none;">Publier l'avis</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo">DÉ<span>L</span>ICES</a>
+                <p>Créateurs de souvenirs gustatifs depuis 2010. L'excellence au service de vos sens.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <a href="#home">Accueil</a>
+                <a href="#secrets">Nos Secrets</a>
+                <a href="#menu">La Carte</a>
+                <a href="#avis">Avis Clients</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p><i class="fas fa-map-marker-alt" style="color: var(--primary);"></i> 12 Avenue des Champs, Paris</p>
+                <p><i class="fas fa-phone" style="color: var(--primary);"></i> 01 23 45 67 89</p>
+                <p><i class="fas fa-envelope" style="color: var(--primary);"></i> contact@delices.fr</p>
+            </div>
+        </div>
+        <p style="text-align: center; color: #444; font-size: 0.8rem; border-top: 1px solid #111; padding-top: 30px;">
+            &copy; 2026 Mes Petits Délices. Réalisé avec Passion et Code.
+        </p>
+    </footer>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <img src="" id="lightboxImg">
+    </div>
+
+    <script>
+        // ============================================================
+        // 1. THREE.JS ENGINE (IMMERSIVE ZOOM VERSION)
+        // ============================================================
+        const canvas = document.querySelector('#three-canvas');
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+       
+        // Setup initial camera position
+        let currentZ = 60;
+        let targetZ = 60;
+        camera.position.z = currentZ;
+
+        const luxuryGroup = new THREE.Group();
+        scene.add(luxuryGroup);
+
+        const coreGeom = new THREE.TorusKnotGeometry(18, 0.4, 250, 40);
+        const coreMat = new THREE.MeshPhongMaterial({
+            color: 0xffd700,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.08,
+            shininess: 80
+        });
+        const core = new THREE.Mesh(coreGeom, coreMat);
+        luxuryGroup.add(core);
+
+        const particlesGeom = new THREE.BufferGeometry();
+        const particlesCnt = 1500;
+        const posArray = new Float32Array(particlesCnt * 3);
+        for(let i=0; i < particlesCnt * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 250;
+        }
+        particlesGeom.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const particlesMat = new THREE.PointsMaterial({ size: 0.06, color: 0xffd700, transparent: true, opacity: 0.2 });
+        const particlesMesh = new THREE.Points(particlesGeom, particlesMat);
+        scene.add(particlesMesh);
+
+        const light1 = new THREE.PointLight(0xff0157, 1.5, 200);
+        light1.position.set(20, 20, 20);
+        scene.add(light1);
+
+        let mouseX = 0, mouseY = 0;
+        document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth) - 0.5;
+            mouseY = (e.clientY / window.innerHeight) - 0.5;
+        });
+
+        // Loop avec Zoom Fluide
+        const animate = () => {
+            requestAnimationFrame(animate);
+           
+            // Animation de rotation
+            luxuryGroup.rotation.y += 0.0008;
+            luxuryGroup.rotation.x += 0.0003;
+           
+            // Suivi souris fluide
+            luxuryGroup.position.x += (mouseX * 6 - luxuryGroup.position.x) * 0.05;
+            luxuryGroup.position.y += (-mouseY * 6 - luxuryGroup.position.y) * 0.05;
+           
+            // Interpolation du Zoom selon le scroll
+            const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+            targetZ = 60 - (scrollPercent * 45); // Se rapproche jusqu'à z=15
+            camera.position.z += (targetZ - camera.position.z) * 0.08; // Lerp pour la fluidité
+           
+            particlesMesh.rotation.y -= 0.0001;
+            renderer.render(scene, camera);
+        };
+        animate();
+
+        // ============================================================
+        // 2. MENU FILTERING LOGIC
+        // ============================================================
+        const tabs = document.querySelectorAll('.tab');
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const filter = tab.getAttribute('data-filter');
+               
+                menuItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (filter === 'tous' || category === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.85)';
+                        setTimeout(() => { item.style.display = 'none'; }, 500);
+                    }
+                });
+            });
+        });
+
+        // ============================================================
+        // 3. MAP INTERACTION
+        // ============================================================
+        const points = document.querySelectorAll('.map-point');
+        const details = document.querySelectorAll('.store-details');
+        const defaultInfo = document.getElementById('default-store');
+
+        points.forEach(point => {
+            point.addEventListener('mouseenter', () => {
+                const storeId = point.getAttribute('data-store');
+                details.forEach(d => d.classList.remove('active'));
+                defaultInfo.classList.remove('active');
+                document.getElementById(`store-${storeId}`).classList.add('active');
+            });
+        });
+
+        // ============================================================
+        // 4. PREVIOUS REFINED FUNCTIONS (CURSOR, TILT, SCROLL REVEAL)
+        // ============================================================
+        const dot = document.getElementById('custom-cursor');
+        const circle = document.getElementById('cursor-follower');
+
+        document.addEventListener('mousemove', (e) => {
+            dot.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            circle.style.transform = `translate(${e.clientX - 20}px, ${e.clientY - 20}px)`;
+        });
+
+        const tiltCards = document.querySelectorAll('.tilt-card');
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left, y = e.clientY - rect.top;
+                const centerX = rect.width / 2, centerY = rect.height / 2;
+                card.style.transform = `perspective(1000px) rotateX(${(y - centerY) / 12}deg) rotateY(${(centerX - x) / 12}deg) scale3d(1.05, 1.05, 1.05)`;
+            });
+            card.addEventListener('mouseleave', () => card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`);
+        });
+
+        const header = document.getElementById('main-header');
+
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('sticky', window.scrollY > 50);
+            reveal();
+            handleCounters();
+        });
+
+        function reveal() {
+            document.querySelectorAll('.reveal, .reveal-text').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                    el.style.opacity = "1";
+                    el.style.transform = "translateY(0)";
+                    el.classList.add('active');
+                }
+            });
+        }
+
+        let countersDone = false;
+        function handleCounters() {
+            const statsSection = document.querySelector('.stats');
+            if (statsSection.getBoundingClientRect().top < window.innerHeight && !countersDone) {
+                document.querySelectorAll('.counter').forEach(counter => {
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target'), count = +counter.innerText, speed = target / 100;
+                        if (count < target) { counter.innerText = Math.ceil(count + speed); setTimeout(updateCount, 25); }
+                        else counter.innerText = target;
+                    };
+                    updateCount();
+                });
+                countersDone = true;
+            }
+        }
+
+        const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lightboxImg');
+        function openLightbox(el) { lbImg.src = el.querySelector('img').src; lb.style.display = 'flex'; setTimeout(() => lb.classList.add('active'), 50); }
+        function closeLightbox() { lb.classList.remove('active'); setTimeout(() => lb.style.display = 'none', 500); }
+
+        const feedbackForm = document.getElementById('feedbackForm');
+        feedbackForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('formName').value, msg = document.getElementById('formMessage').value;
+
+            const div = document.createElement('div');
+            div.className = 'avis-card';
+            div.innerHTML = `<h4>${name}</h4><p>"${msg}"</p>`;
+            document.getElementById('avisDisplay').prepend(div);
+            feedbackForm.reset();
+            alert('Votre expérience a bien été publiée ! ✨');
+        });
+
+        reveal();
+    </script>
+</body>
+</html>
